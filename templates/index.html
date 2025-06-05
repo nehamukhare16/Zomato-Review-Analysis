@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zomato Review Sentiment</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 150px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      resize: none;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background-color: #e23744;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c62838;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png" alt="Zomato Logo">
+    </div>
+    <h1>Zomato Review Sentiment</h1>
+    <form method="post">
+      <label for="review">Enter your review:</label><br />
+      <textarea name="review" id="review" required>{{ review }}</textarea><br />
+      <button type="submit">Predict Sentiment</button>
+    </form>
+
+    {% if sentiment %}
+      <div class="result">
+        Predicted Sentiment:
+        <span style="color: {% if sentiment=='Positive' %}lightgreen{% elif sentiment=='Negative' %}red{% else %}gray{% endif %};">
+          {{ sentiment }}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
