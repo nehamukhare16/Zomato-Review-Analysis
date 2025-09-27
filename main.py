@@ -11,7 +11,7 @@ import pickle
 
 
 # Load dataset
-df = pd.read_csv("c:/Users/nikit/Downloads/zomato_reviews.csv")
+df = pd.read_csv("c:/Users/neham/Downloads/zomato_reviews.csv")
 print(df)
 
 # Drop unnecessary columns and NaNs

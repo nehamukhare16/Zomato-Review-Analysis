@@ -44,5 +44,6 @@ def home():
         sentiment = prediction.capitalize()
     return render_template('index.html', sentiment=sentiment, review=review)
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5003)
+if __name__ == "__main__":
+    app.run(debug=True, port=5001)
+
